@@ -1,13 +1,9 @@
-// Declare variables for the creature and buttons
 let creature;
 let button1;
-let button2;
 
 function setup() {
-  // Create a canvas with dimensions 600x400
   createCanvas(600, 400);
 
-  // Generate random initial positions for the creature
   let posX = random(width);
   let posY = random(height);
 
@@ -15,9 +11,9 @@ function setup() {
   creature = new Creature(posX, posY, 50);
 
   // Create a "Party mode" button and set its position and click event
-  button2 = createButton('Party mode');
-  button2.position(450, 350);
-  button2.mousePressed(changeColors);
+  button1 = createButton('Party mode');
+  button1.position(450, 350);
+  button1.mousePressed(changeColors);
 }
 
 function draw() {
@@ -58,7 +54,7 @@ function changeColors() {
   creature.changeBackgroundColor();
 }
 
-// Define a class for the Creature
+// class for the Creature
 class Creature {
   constructor(x, y, radius) {
     this.x = x;
@@ -69,7 +65,7 @@ class Creature {
     this.backgroundColor = color(220);
   }
 
-  // Method to update the creature's position with random movements
+  // To update the creature's position with random movements
   move() {
     this.x += random(-2, 2);
     this.y += random(-2, 2);
@@ -77,22 +73,22 @@ class Creature {
     this.y = constrain(this.y, 0, height - 5);
   }
 
-  // Method to move the creature to the right
+  // to move the creature to the right
   moveRight() {
     this.x += 2;
   }
 
-  // Method to move the creature upward
+  // To move the creature upward
   moveUp() {
     this.y -= 2;
   }
 
-  // Method to move the creature to the left
+  // to move the creature to the left
   moveLeft() {
     this.x -= 2;
   }
 
-  // Method to move the creature downward
+  // To move the creature downward
   moveDown() {
     this.y += 2;
   }
@@ -117,12 +113,12 @@ class Creature {
     triangle(this.x + 20, this.y - 20, this.x + 15, this.y - 30, this.x + 10, this.y - 20);
   }
 
-  // Method to change the color of the creature
+  // Change the color of the creature
   changeColor() {
     this.color = color(random(255), random(255), random(255));
   }
 
-  // Method to change the background color behind the creature
+  // Change the background color behind the creature
   changeBackgroundColor() {
     this.backgroundColor = color(random(255), random(255), random(255));
   }
